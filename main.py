@@ -4,13 +4,14 @@ from selenium.webdriver.chrome.options import Options
 from time import sleep
 import uuid
 import base64
+import os
 
 
 def shoot(url):
   chrome_options = Options()
   chrome_options.add_argument('--headless')
   chrome_options.add_argument('--no-sandbox')
-  chrome_options.add_argument('--window-size=735,698')
+  chrome_options.add_argument('--window-size=735,600')
   chrome_options.add_argument('--ignore-certificate-errors')
   chrome_options.add_argument('--allow-running-insecure-content')
   chrome_options.add_argument('--disable-dev-shm-usage')
@@ -31,6 +32,7 @@ def img(filename):
   with open(filename, "rb") as image_file:
     encoded_string = base64.b64encode(image_file.read())
     prefix = 'data:image/png;base64,'
+    os.remove(filename)
     return prefix + encoded_string
     
 
