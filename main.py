@@ -52,6 +52,4 @@ def chart(ticker_id, timeframe):
 
   return render_template("chart.html", ticker_id=ticker_id, timeframe=timeframe)
     
-
-app.run(host='0.0.0.0', port=8080)
     
