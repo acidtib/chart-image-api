@@ -40,7 +40,7 @@ def img(filename):
 app = Flask('app')
 
 @app.route('/<ticker_id>/<timeframe>')
-def home():
+def home(ticker_id, timeframe):
   url = "http://chart-image.api.dabois.capital/chart/%s/%s" % (ticker_id, timeframe)
   img = shoot(url)
 
