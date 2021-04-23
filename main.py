@@ -38,7 +38,7 @@ app = Flask('app')
 
 @app.route('/')
 def home():
-  img = shoot('http://localhost:8080/chart/DOGEUSD/1h')
+  img = shoot('http://chart-image.api.dabois.capital/chart/DOGEUSD/1h')
 
   return jsonify(img=img)
 
