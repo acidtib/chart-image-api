@@ -39,9 +39,10 @@ def img(filename):
 
 app = Flask('app')
 
-@app.route('/')
+@app.route('/<ticker_id>/<timeframe>')
 def home():
-  img = shoot('http://chart-image.api.dabois.capital/chart/DOGEUSD/1h')
+  url = "http://chart-image.api.dabois.capital/chart/%s/%s" % (ticker_id, timeframe)
+  img = shoot(url)
 
   return jsonify(img=img)
 
